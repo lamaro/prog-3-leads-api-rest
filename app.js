@@ -22,7 +22,7 @@ app.use(cors())
 routes = require('./routes/leads')(app);
 
 app.get('/', function (req, res) {
-    res.send("Welcome to the machine...");
+    res.send("Welcome to the machine ...");
 });
 
 server.listen(process.env.PORT || 3000, function () {
