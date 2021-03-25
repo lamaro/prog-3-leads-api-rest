@@ -1,6 +1,5 @@
 var express = require("express"),
     app = express(),
-    bodyParser = require("body-parser"),
     methodOverride = require("method-override"),
     http = require("http"),
     server = http.createServer(app),
@@ -13,8 +12,8 @@ mongoose.connect('mongodb+srv://maimo:dKiw8vPdNBfIQzRD@cluster0.jkpmu.mongodb.ne
 });
 
 // Middlewares
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(methodOverride());
 var cors = require('cors')
 app.use(cors())
