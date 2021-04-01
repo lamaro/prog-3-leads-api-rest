@@ -1,4 +1,4 @@
-var express = require("express"),
+const express = require("express"),
     app = express(),
     methodOverride = require("method-override"),
     http = require("http"),
@@ -6,16 +6,23 @@ var express = require("express"),
     mongoose = require('mongoose');
 
 // Connection to DB
-mongoose.connect('mongodb+srv://maimo:dKiw8vPdNBfIQzRD@cluster0.jkpmu.mongodb.net/leadsdb?retryWrites=true&w=majority', function (err, res) {
-    if (err) throw err;
-    console.log('Connected to Database');
-});
+mongoose.connect(
+    'mongodb+srv://maimo:dKiw8vPdNBfIQzRD@cluster0.jkpmu.mongodb.net/leadsdb?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    function (err, res) {
+        try {
+            console.log('Connected to Database');
+        } catch (err) {
+            console.log(err)
+            throw err;
+        }
+    });
 
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride());
-var cors = require('cors')
+const cors = require('cors')
 app.use(cors())
 
 routes = require('./routes/leads')(app);

@@ -3,7 +3,7 @@ const crudLeads = (app) => {
     const Lead = require('../models/leads.js');
 
     //FUNCIONES DE ENDPOINTS
-    //GET - Devuelve todas las Leads en la base
+    //GET - Devuelve todas los Leads en la base
     findAllLeads = (req, res) => {
         Lead.find((err, leads) => {
             if (!err) {
