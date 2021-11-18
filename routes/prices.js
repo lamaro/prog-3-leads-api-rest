@@ -14,9 +14,20 @@ const crudPrices = (app) => {
             }
         });
     };
+    findOnePrice = (req, res) => {
+        Price.find(req.params.id, (err, leads) => {
+            if (!err) {
+                console.log('GET /prices')
+                res.send(leads);
+            } else {
+                console.log('ERROR: ' + err);
+            }
+        });
+    };
 
     //Rutas de la API, asociadas a una función
     app.get('/prices', findAllPrices);
+    app.get('/price/:id', findAllPrices);
 }
 
 module.exports = crudPrices;

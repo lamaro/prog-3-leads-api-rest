@@ -53,6 +53,13 @@
             ]
         },
         {
+            "src": "/price/(?<id>[^/]+)",
+            "dest": "/app.js/?id=$id",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/leads",
             "dest": "/app.js",
             "methods": [
