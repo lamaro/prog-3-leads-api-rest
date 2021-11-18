@@ -46,6 +46,13 @@
             ]
         },
         {
+            "src": "/prices",
+            "dest": "/app.js",
+            "methods": [
+                "GET"
+            ]
+        },
+        {
             "src": "/leads",
             "dest": "/app.js",
             "methods": [

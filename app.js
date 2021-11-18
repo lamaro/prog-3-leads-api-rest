@@ -26,13 +26,14 @@ const cors = require('cors')
 app.use(cors())
 
 routes = require('./routes/leads')(app);
+routes = require('./routes/prices')(app);
 
 app.get('/', function (req, res) {
     res.send("Welcome to the machine ...");
 });
 
-server.listen(process.env.PORT || 3000, function () {
-    console.log("Node server running on http://localhost:3001");
+server.listen(process.env.PORT || 4000, function () {
+    console.log("Node server running on http://localhost:4000");
 });
 
 module.exports = app;
